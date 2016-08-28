@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ATLauncher\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -14,7 +14,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'App\Http\Controllers';
+    protected $namespace = 'ATLauncher\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -46,6 +46,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::group([
+            'prefix' => 'v2',
             'middleware' => 'api',
             'namespace' => $this->namespace,
         ], function ($router) {

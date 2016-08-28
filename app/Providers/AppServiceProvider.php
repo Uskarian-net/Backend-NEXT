@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace ATLauncher\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        require_once(app_path('Swagger/Constants.php'));
     }
 
     /**
@@ -23,6 +23,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if ($this->app->environment() !== 'production') {
+            $this->app->register(\Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class);
+        }
     }
 }

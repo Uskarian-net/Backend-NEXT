@@ -1,0 +1,39 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "ATLauncher API",
+        "description": "This is the API for accessing data for ATLauncher.",
+        "version": "1.0.0"
+    },
+    "basePath": "/v2",
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "root"
+                ],
+                "summary": "Returns a hello world message",
+                "description": "Simply returns a hello world message used for testing things out.",
+                "operationId": "get",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {},
+    "tags": [
+        {
+            "name": "root",
+            "description": "Just root stuff"
+        }
+    ]
+}

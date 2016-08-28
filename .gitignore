@@ -2,7 +2,10 @@
 /public/storage
 /vendor
 /.idea
+/.vagrant
 Homestead.json
 Homestead.yaml
 .env
 npm-debug.log
+_ide_helper.php
+.phpstorm.meta.php

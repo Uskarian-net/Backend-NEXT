@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +11,4 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function (Request $request) {
-    return response()->json('Hello, World!');
-});
+Route::get('/', ['as' => 'root', 'uses' => 'RootController@get']);

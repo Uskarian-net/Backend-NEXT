@@ -12,7 +12,19 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => 'ATLauncher Backend',
+    'name' => 'ATLauncher API',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Application Version
+    |--------------------------------------------------------------------------
+    |
+    | This value is the version of your application. It should be changed for
+    | each change to the code and should follow semver. This value is used
+    | by Swagger on the documentation page to indicate the APIs version.
+    */
+
+    'version' => env('APP_VERSION', '1.0.0'),
 
     /*
     |--------------------------------------------------------------------------
@@ -166,17 +178,15 @@ return [
         /*
          * Package Service Providers...
          */
-
-        //
+        \L5Swagger\L5SwaggerServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        ATLauncher\Providers\AppServiceProvider::class,
+        ATLauncher\Providers\AuthServiceProvider::class,
+        ATLauncher\Providers\EventServiceProvider::class,
+        ATLauncher\Providers\RouteServiceProvider::class,
 
     ],
 
