@@ -18,7 +18,7 @@ class CreatePackUserTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('pack_id')->unsigned();
             $table->integer('created_by')->unsigned();
-            $this->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::table('pack_user', function (Blueprint $table) {

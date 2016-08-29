@@ -34,7 +34,7 @@ return [
         |--------------------------------------------------------------------------
         */
 
-        'security_definition' => env('L5_SWAGGER_API_SECURITY_DEFINITION', 'api_key'),
+        'security_definition' => env('L5_SWAGGER_API_SECURITY_DEFINITION', 'oauth'),
 
         /*
         |--------------------------------------------------------------------------
@@ -59,6 +59,26 @@ return [
         */
 
         'swagger_version' => env('L5_SWAGGER_DEFAULT_API_VERSION', '1'),
+
+    ],
+
+    'oauth' => [
+
+        /*
+        |--------------------------------------------------------------------------
+        | Edit to set the oauth client id
+        |--------------------------------------------------------------------------
+        */
+
+        'client_id' => env('L5_SWAGGER_OAUTH_CLIENT_ID', null),
+
+        /*
+        |--------------------------------------------------------------------------
+        | Edit to set the oauth client secret
+        |--------------------------------------------------------------------------
+        */
+
+        'client_secret' => env('L5_SWAGGER_OAUTH_CLIENT_SECRET', null),
 
     ],
 

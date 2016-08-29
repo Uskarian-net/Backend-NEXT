@@ -17,10 +17,11 @@ This will setup a virtual machine which contains this code and runs a nginx and 
 
 Next simply copy the `.env.example` file to `.env`.
 
-Lastly we need to install the composer dependancies which can be done by running the following:
+Lastly we need to install the composer dependencies, and other important setup, which can be done by running the following:
 
 ```
 vagrant ssh -- cd /var/www && composer install
+vagrant ssh -- cd /var/www && php artisan passport:install
 ```
 
 You can then access the site from your browser using `https://localhost:8000` (port configurable in the `Vagrantfile` file).

@@ -2,7 +2,7 @@
 
 namespace ATLauncher\Providers;
 
-use Illuminate\Support\Facades\Gate;
+use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,6 +25,16 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Passport::routes(function ($router) {
+            $router->forAuthorization();
+            $router->forAccessTokens();
+        });
+
+        Passport::pruneRevokedTokens();
+
+        Passport::tokensCan([
+            'self:read' => 'Read own user credentials (except password)',
+            'self:write' => 'Change own user credentials (including password)',
+        ]);
     }
 }

@@ -17,7 +17,7 @@ class CreateLauncherVersionsTable extends Migration
             $table->increments('id');
             $table->string('version', 16)->index();
             $table->integer('created_by')->unsigned();
-            $this->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::table('launcher_versions', function (Blueprint $table) {

@@ -68,11 +68,11 @@ if (app()->environment() != 'testing') {
 
                     if(typeof initOAuth == "function") {
                         initOAuth({
-                            clientId: "your-client-id",
-                            clientSecret: "your-client-secret-if-required",
+                            clientId: '{{  config('l5-swagger.oauth.client_id') }}',
+                            clientSecret: '{{  config('l5-swagger.oauth.client_secret') }}',
                             realm: "your-realms",
-                            appName: "your-app-name",
-                            scopeSeparator: ",",
+                            appName: "Swagger",
+                            scopeSeparator: " ",
                             additionalQueryStringParams: {}
                         });
                     }

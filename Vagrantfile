@@ -32,7 +32,7 @@ Vagrant.configure(2) do |config|
         # Install PHP7
         add-apt-repository ppa:ondrej/php
         apt-get -y update
-        apt-get -y install php7.0-fpm
+        apt-get -y install php7.0-fpm php7.0-sqlite3 php7.0-mbstring php7.0-xml php7.0-bz2 php7.0-curl php7.0-mcrypt php7.0-zip
         update-rc.d php7.0-fpm defaults
 
         # Create ssl certificate

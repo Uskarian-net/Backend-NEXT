@@ -18,7 +18,7 @@ class CreatePackTagsTable extends Migration
             $table->integer('pack_id')->unsigned()->index();
             $table->string('tag', 64)->index();
             $table->integer('created_by')->unsigned();
-            $this->timestamp('created_at')->nullable();
+            $table->timestamp('created_at')->nullable();
         });
 
         Schema::table('pack_tags', function (Blueprint $table) {

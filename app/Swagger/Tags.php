@@ -6,3 +6,10 @@
  *   description="Just root stuff",
  * )
  */
+
+/**
+ * @SWG\Tag(
+ *   name="oauth",
+ *   description="Oauth authentication",
+ * )
+ */

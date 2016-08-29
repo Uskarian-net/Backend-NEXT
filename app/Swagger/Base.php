@@ -2,7 +2,9 @@
 
 /**
  * @SWG\Swagger(
- *     basePath="/v2",
+ *     basePath="/",
+ *     consumes={"application/json"},
+ *     produces={"application/json"},
  *     @SWG\Info(
  *         version=API_VERSION,
  *         title="ATLauncher API",
