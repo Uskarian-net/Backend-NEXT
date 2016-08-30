@@ -1,6 +1,23 @@
 <?php
 
-// https://localhost:8000/oauth/authorize?client_id=3&redirect_uri=https%3A%2F%2Flocalhost%3A8000%2Fauth%2Fcallback&response_type=code&scope=self:read
+/**
+ * @SWG\GET(
+ *     path="/oauth/scopes",
+ *     summary="Get the scopes available.",
+ *     description="Gets a listing of scopes available to get access from users.",
+ *     tags={"oauth"},
+ *     produces={"application/json"},
+ *     @SWG\Response(
+ *         response=200,
+ *         description="successful operation",
+ *         @SWG\Schema(
+ *             type="array",
+ *             @SWG\Items(ref="#/definitions/OauthScopesResponse")
+ *         )
+ *     )
+ * )
+ */
+
 /**
  * @SWG\GET(
  *     path="/oauth/authorize",
