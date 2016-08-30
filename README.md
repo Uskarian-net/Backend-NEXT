@@ -22,7 +22,11 @@ Lastly we need to install the composer dependencies, and other important setup, 
 ```
 vagrant ssh -- cd /var/www && composer install
 vagrant ssh -- cd /var/www && php artisan passport:install
+vagrant ssh -- cd /var/www && php artisan migrate
+vagrant ssh -- cd /var/www && php artisan db:seed
 ```
+
+When running the last command a client id and secret will be printed out to console which you can use to input into the Swagger page to test out authenticated routes with.
 
 You can then access the site from your browser using `https://localhost:8000` (port configurable in the `Vagrantfile` file).
 

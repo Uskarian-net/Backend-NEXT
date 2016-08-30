@@ -88,6 +88,8 @@ if (app()->environment() != 'testing') {
                             window.SwaggerTranslator.translate();
                         }
 
+                        addOAuthAuthorization();
+
                         $('pre code').each(function (i, e) {
                             hljs.highlightBlock(e)
                         });
@@ -104,10 +106,13 @@ if (app()->environment() != 'testing') {
                 });
 
                 function addOAuthAuthorization() {
-                    if (typeof initOAuth == "function") {
+                    var clientId = $('#input_clientId')[0].value;
+                    var clientSecret = $('#input_clientSecret')[0].value;
+
+                    if (typeof initOAuth == "function" && clientId !== '' && clientSecret !== '') {
                         initOAuth({
-                            clientId: $('#input_clientId')[0].value,
-                            clientSecret: $('#input_clientSecret')[0].value,
+                            clientId: clientId,
+                            clientSecret: clientSecret,
                             realm: "your-realms",
                             appName: "Swagger",
                             scopeSeparator: " ",
@@ -153,12 +158,10 @@ if (app()->environment() != 'testing') {
 
                 if (localStorage.getItem('swagger-clientId') !== null) {
                     $('#input_clientId')[0].value = localStorage.getItem('swagger-clientId');
-                    addOAuthAuthorization();
                 }
 
                 if (localStorage.getItem('swagger-clientSecret') !== null) {
                     $('#input_clientSecret')[0].value = localStorage.getItem('swagger-clientSecret');
-                    addOAuthAuthorization();
                 }
 
                 window.swaggerUi.load();
