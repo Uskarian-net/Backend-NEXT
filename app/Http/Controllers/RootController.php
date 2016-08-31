@@ -10,6 +10,7 @@ class RootController extends Controller
      *     summary="Returns a hello world message.",
      *     tags={"root"},
      *     description="Simply returns a hello world message used for testing things out.",
+     *     operationId="get",
      *     produces={"application/json"},
      *     @SWG\Response(
      *         response=200,
@@ -30,6 +31,7 @@ class RootController extends Controller
      *     summary="Route to test OAuth.",
      *     tags={"root"},
      *     description="This route is simply here to test OAuth authentication.",
+     *     operationId="get",
      *     produces={"application/json"},
      *     @SWG\Response(
      *         response=200,
@@ -37,10 +39,6 @@ class RootController extends Controller
      *         @SWG\Schema(
      *             type="string"
      *         )
-     *     ),
-     *     @SWG\Response(
-     *         response="401",
-     *         description="unauthenticated"
      *     ),
      *     security={
      *         {
@@ -50,6 +48,6 @@ class RootController extends Controller
      * )
      */
     public function getAuthenticated() {
-        return response()->json('Hello, Authenticated!');
+        return response()->json('Hello, World!');
     }
 }

@@ -2,7 +2,7 @@
     "swagger": "2.0",
     "info": {
         "title": "ATLauncher API",
-        "description": "This is the API for accessing data for ATLauncher. Please note that any authenticated requests will list the scopes needed to access and will need an 'Authorization: Bearer\n                        {token}' heading. This token can be created by following the OAuth section below. Alternatively to test the API in Swagger with authorizaton needed, enter your client id\n                        and secret in the top box (optionally clicking save to remember those credentials on page refresh) so that you can use the on/off toggles beside calls needing authentication\n                        using your client id and client secretFor now there is no way to create new OAuth clients for use in your own applications, but this will be coming in the future.",
+        "description": "This is the API for accessing data for ATLauncher. Please note that any authenticated requests will list the scopes needed to access and will need an 'Authorization: Bearer\n                        {token}' heading. This token can be created by following the OAuth section below. Alternatively to test the API in Swagger with authorizaton needed, enter your client id\n                        and secret in the top box (optionally clicking save to remember those credentials on page refresh) so that you can use the on/off toggles beside calls needing authentication\n                        using your client id and client secret. For now there is no way to create new OAuth clients for use in your own applications, but this will be coming in the future.",
         "version": "1.0.0"
     },
     "basePath": "/",
@@ -20,6 +20,7 @@
                 ],
                 "summary": "Returns a hello world message.",
                 "description": "Simply returns a hello world message used for testing things out.",
+                "operationId": "get",
                 "produces": [
                     "application/json"
                 ],
@@ -40,6 +41,7 @@
                 ],
                 "summary": "Route to test OAuth.",
                 "description": "This route is simply here to test OAuth authentication.",
+                "operationId": "get",
                 "produces": [
                     "application/json"
                 ],
@@ -49,9 +51,6 @@
                         "schema": {
                             "type": "string"
                         }
-                    },
-                    "401": {
-                        "description": "unauthenticated"
                     }
                 },
                 "security": [

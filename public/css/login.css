@@ -1,5 +1,25 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.logged-in-as {
+    margin-top: -45px;
+    padding-bottom: 20px;
+}
+
+.authorize-button {
+    padding-top: 20px;
+}
+
+.authorize-page {
+    width: 600px;
+    padding: 50px 0 0;
+    margin: auto;
+}
+
+.scope-list {
+    list-style: none;
+    padding-left: 0;
+}
+
 .login-page {
     width: 360px;
     padding: 50px 0 0;
@@ -10,7 +30,7 @@
     position: relative;
     z-index: 1;
     background: #FFFFFF;
-    max-width: 360px;
+    max-width: 600px;
     margin: 0 auto 100px;
     padding: 45px;
     text-align: center;

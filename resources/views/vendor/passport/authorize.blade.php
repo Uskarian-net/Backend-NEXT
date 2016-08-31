@@ -30,7 +30,7 @@
             </a>
         </h1>
 
-        <div class="login-page">
+        <div class="authorize-page">
             @if (count($errors) > 0)
                 <div class="error display-message">
                     <h2>Error</h2>
@@ -41,15 +41,17 @@
             @endif
 
             <div class="form">
-                <!-- Introduction -->
+                <div class="logged-in-as">
+                    <p>Logged in as <strong>{{ $user->username }}</strong>. <a href="/logout/return">Not You?</a></p>
+                </div>
+
                 <p><strong>{{ $client->name }}</strong> is requesting permission to access your account.</p>
 
-                <!-- Scope List -->
                 @if (count($scopes) > 0)
                     <div class="scopes">
                         <p><strong>This application will be able to:</strong></p>
 
-                        <ul>
+                        <ul class="scope-list">
                             @foreach ($scopes as $scope)
                                 <li>{{ $scope->description }}</li>
                             @endforeach
@@ -58,8 +60,7 @@
                 @endif
 
                 <div class="buttons">
-                    <!-- Authorize Button -->
-                    <form method="post" action="/oauth/authorize">
+                    <form method="post" class="authorize-button" action="/oauth/authorize">
                         {{ csrf_field() }}
 
                         <input type="hidden" name="state" value="{{ $request->state }}">
@@ -67,8 +68,7 @@
                         <button type="submit" class="btn btn-success btn-approve">Authorize</button>
                     </form>
 
-                    <!-- Cancel Button -->
-                    <form method="post" action="/oauth/authorize">
+                    <form method="post" class="authorize-button" action="/oauth/authorize">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
 

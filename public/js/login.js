@@ -9,3 +9,7 @@ function logoAnimate() {
 window.onload = function () {
     logoAnimate();
 };
+
+$('.message a').click(function () {
+    $('form').animate({height: 'toggle', opacity: 'toggle'}, 'slow');
+});
