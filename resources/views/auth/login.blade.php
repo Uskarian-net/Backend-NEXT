@@ -55,6 +55,10 @@
                 <form role="form" method="POST" action="{{ url('/login') }}" class="login-form">
                     <input type="text" name="username" placeholder="username"/>
                     <input type="password" name="password" placeholder="password"/>
+
+                    <input type="checkbox" name="remember" id="remember-checkbox" />
+                    <label for="remember-checkbox">Remember me</label>
+
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <button>login</button>

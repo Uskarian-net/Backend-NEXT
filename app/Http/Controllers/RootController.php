@@ -15,13 +15,17 @@ class RootController extends Controller
      *     @SWG\Response(
      *         response=200,
      *         description="successful operation",
-     *         @SWG\Schema(
-     *             type="string"
-     *         )
+     *         @SWG\Schema(type="string")
+     *     ),
+     *     @SWG\Response(
+     *         response=429,
+     *         description="too many attempts",
+     *         @SWG\Schema(type="string")
      *     )
      * )
      */
-    public function get() {
+    public function get()
+    {
         return response()->json('Hello, World!');
     }
 
@@ -36,18 +40,18 @@ class RootController extends Controller
      *     @SWG\Response(
      *         response=200,
      *         description="successful operation",
-     *         @SWG\Schema(
-     *             type="string"
-     *         )
+     *         @SWG\Schema(type="string")
      *     ),
-     *     security={
-     *         {
-     *             "oauth": {"read:self"}
-     *         }
-     *     }
+     *     @SWG\Response(
+     *         response=429,
+     *         description="too many attempts",
+     *         @SWG\Schema(type="string")
+     *     ),
+     *     security={{"oauth": {"read:self"}}}
      * )
      */
-    public function getAuthenticated() {
-        return response()->json('Hello, World!');
+    public function getAuthenticated()
+    {
+        return response()->json('Hello, Authenticated!');
     }
 }
