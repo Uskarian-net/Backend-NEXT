@@ -1,9 +1,5 @@
 <?php
 
-Route::get('/', function() {
-    return redirect('/documentation');
-});
-
 Route::get('/login', 'Auth\LoginController@showLoginForm')->middleware('csrf');
 Route::post('/login', 'Auth\LoginController@login')->middleware('csrf');
 Route::get('/logout', 'Auth\LoginController@logout');

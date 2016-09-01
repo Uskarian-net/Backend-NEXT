@@ -39,24 +39,5 @@ vagrant ssh
 
 The code is stored in the `/var/www/` directory (which is automatically changed into upon login). All `artisan` commands should be run from this directory.
 
-## Documentation
-Documentation is automatically generated using Swagger. To generate the documentation simply run:
-
-```
-vagrant ssh -- cd /var/www && php artisan l5-swagger:generate
-```
-
-Documentation is also automatically generated when a `composer install` is run.
-
-Alternatively you can have the documentation generated automatically without running a command by setting the following in the `.env` file in the root of this project:
-
-```
-L5_SWAGGER_GENERATE_ALWAYS=true
-```
-
-Generated documentation is available by visiting `https://localhost:8000/documentation` in your browser.
-
-Base Swagger config is located in the `app/Swagger/` directory and all Models and Controllers should be annotated with appropriate Swagger annotations when creating.
-
 ## License
 This code is licensed under the MIT license and can be found in the `LICENSE` file in the root directory of this repository.

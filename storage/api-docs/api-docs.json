@@ -74,6 +74,91 @@
                 ]
             }
         },
+        "/v2/users": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Gets the registered users.",
+                "description": "Returns a list of registered users in the system.",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/User"
+                            }
+                        }
+                    },
+                    "429": {
+                        "description": "too many attempts",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "oauth": [
+                            "users:list"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/v2/users/{userId}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "summary": "Gets the registered users.",
+                "description": "Returns a list of registered users in the system.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "userId",
+                        "in": "path",
+                        "description": "ID of the user",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    },
+                    "404": {
+                        "description": "user not found",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "429": {
+                        "description": "too many attempts",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "oauth": [
+                            "users:read"
+                        ]
+                    }
+                ]
+            }
+        },
         "/oauth/scopes": {
             "get": {
                 "tags": [
@@ -240,6 +325,31 @@
             "xml": {
                 "name": "OauthTokenResponse"
             }
+        },
+        "User": {
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "username": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "must_change_password": {
+                    "type": "boolean"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+            },
+            "xml": {
+                "name": "User"
+            }
         }
     },
     "securityDefinitions": {
@@ -249,19 +359,28 @@
             "authorizationUrl": "/oauth/authorize",
             "tokenUrl": "/oauth/token",
             "scopes": {
-                "self:read": "read your account (except password)",
-                "self:write": "write to account data"
+                "self:read": "Read own user credentials (except password)",
+                "self:write": "Change own user credentials (including password)",
+                "users:list": "List all users",
+                "users:create": "Create a new user",
+                "users:read": "View a user",
+                "users:update": "Update the details for a user",
+                "users:delete": "Delete a user"
             }
         }
     },
     "tags": [
         {
             "name": "root",
-            "description": "Just root stuff"
+            "description": "Just root stuff."
         },
         {
             "name": "oauth",
-            "description": "Oauth authentication"
+            "description": "OAuth authentication."
+        },
+        {
+            "name": "users",
+            "description": "User routes."
         }
     ]
 }

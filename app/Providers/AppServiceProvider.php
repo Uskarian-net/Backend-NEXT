@@ -13,7 +13,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        require_once(app_path('Swagger/Constants.php'));
     }
 
     /**
