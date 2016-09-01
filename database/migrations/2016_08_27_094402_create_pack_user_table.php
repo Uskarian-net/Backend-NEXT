@@ -17,7 +17,7 @@ class CreatePackUserTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->integer('pack_id')->unsigned();
-            $table->integer('created_by')->unsigned();
+            $table->integer('created_by')->unsigned()->nullable()->default(null);
             $table->timestamp('created_at')->nullable();
         });
 

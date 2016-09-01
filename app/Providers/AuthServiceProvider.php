@@ -2,6 +2,7 @@
 
 namespace ATLauncher\Providers;
 
+use ATLauncher\Models\Role;
 use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

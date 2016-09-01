@@ -11,6 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(OAuthSeeder::class);
+        if (App::environment() !== 'development') {
+            $this->call(OAuthSeeder::class);
+            $this->call(RoleSeeder::class);
+            $this->call(UserSeeder::class);
+        }
     }
 }
