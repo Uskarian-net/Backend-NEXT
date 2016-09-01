@@ -31,7 +31,7 @@ class OAuthSeeder extends Seeder
         $swagger_client = \Laravel\Passport\Client::where('name', 'Swagger')->where('redirect', $swagger_callback_url)->first();
 
         if (is_null($swagger_client)) {
-            $swagger_client = $this->clients->createPersonalAccessClient(null, 'Swagger', $swagger_callback_url);
+            $swagger_client = $this->clients->create(null, 'Swagger', $swagger_callback_url);
         }
 
         $this->command->info('client_id: ' . $swagger_client->id);
