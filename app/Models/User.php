@@ -16,6 +16,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property boolean $must_change_password
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
+ * @property integer $rateLimit
  * @property-read \Illuminate\Database\Eloquent\Collection|\ATLauncher\Models\Pack[] $packs
  * @property-read \Illuminate\Database\Eloquent\Collection|\ATLauncher\Models\Role[] $roles
  */

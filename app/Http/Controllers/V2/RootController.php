@@ -1,6 +1,8 @@
 <?php
 
-namespace ATLauncher\Http\Controllers;
+namespace ATLauncher\Http\Controllers\V2;
+
+use ATLauncher\Http\Controllers\Controller;
 
 class RootController extends Controller
 {

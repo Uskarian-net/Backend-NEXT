@@ -17,6 +17,7 @@ class CreateRolesTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->text('description');
+            $table->integer('rate_limit')->unsigned()->default(20);
             $table->integer('created_by')->unsigned()->nullable()->default(null);
             $table->timestamps();
         });

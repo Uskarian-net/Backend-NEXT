@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $id
  * @property string $name
  * @property string $description
+ * @property integer $rate_limit
  * @property integer $created_by
  * @property \Carbon\Carbon $created_at
  * @property \Carbon\Carbon $updated_at
@@ -24,6 +25,7 @@ class Role extends Model
     protected $fillable = [
         'name',
         'description',
+        'rate_limit',
         'created_by'
     ];
 
@@ -46,6 +48,7 @@ class Role extends Model
         'id' => 'integer',
         'name' => 'string',
         'description' => 'string',
+        'rate_limit' => 'integer',
         'created_by' => 'integer',
         'created_at' => 'datetime',
         'updated_at' => 'datetime'

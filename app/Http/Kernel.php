@@ -32,7 +32,7 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            'throttle:60,1',
+            'ratelimit:20,1,api',
             'bindings',
         ],
     ];
@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \ATLauncher\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'ratelimit' => \ATLauncher\Http\Middleware\RateLimit::class,
         'csrf' => \ATLauncher\Http\Middleware\VerifyCsrfToken::class
     ];
 }

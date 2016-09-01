@@ -20,4 +20,22 @@ trait HasRoles
 
         return false;
     }
+
+    /**
+     * Gets the maximum number of requests that can be done per 'period' defined in the 'ratelimit' middleware.
+     *
+     * @return int
+     */
+    public function getRateLimitAttribute()
+    {
+        $rateLimit = 20;
+
+        foreach ($this->roles as $role) {
+            if ($role->rate_limit > $rateLimit) {
+                $rateLimit = $role->rate_limit;
+            }
+        }
+
+        return $rateLimit;
+    }
 }

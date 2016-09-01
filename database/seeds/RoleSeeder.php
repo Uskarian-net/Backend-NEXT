@@ -15,6 +15,7 @@ class RoleSeeder extends Seeder
             \ATLauncher\Models\Role::create([
                 'name' => 'admin',
                 'description' => 'An admin to the ATLauncher system',
+                'rate_limit' => 600,
                 'created_by' => null
             ]);
         }
