@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 /**
  * @property integer $id
  * @property string $username
+ * @property string $password
  * @property string $email
  * @property string $remember_token
  * @property string $creation_token

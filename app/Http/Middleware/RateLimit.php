@@ -41,9 +41,10 @@ class RateLimit extends ThrottleRequests
      */
     protected function buildResponse($key, $maxAttempts)
     {
-        $response = response()->setStatusCode(429)->json([
+        $response = response()->json([
+            'code' => 429,
             'error' => 'Rate limit reached. Please wait before making more requests.'
-        ]);
+        ], 429);
 
         $retryAfter = $this->limiter->availableIn($key);
 

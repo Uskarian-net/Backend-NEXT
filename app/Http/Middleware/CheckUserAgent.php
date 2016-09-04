@@ -29,7 +29,7 @@ class CheckUserAgent
             return response()->json([
                 'code' => 403,
                 'error' => 'User agent must be specified for ' . ($onlyAuthenticatedRoutes ? 'authenticated' : 'all') . ' requests.'
-            ])->setStatusCode(403);
+            ], 403);
         }
 
         return $next($request);

@@ -18,4 +18,11 @@ Route::group(['prefix' => '/self', 'middleware' => ['auth:api', 'scopes:self:rea
     Route::get('/roles', 'SelfController@roles');
 });
 
-Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);
+Route::group(['prefix' => '/users', 'middleware' => ['auth:api', 'role:api,admin']], function () {
+    Route::get('/', 'UsersController@index')->middleware('scopes:users:read');
+    Route::post('/', 'UsersController@create')->middleware('scopes:users:write');
+
+    Route::get('/{id}', 'UsersController@read')->middleware('scopes:users:read');
+    Route::put('/{id}', 'UsersController@update')->middleware('scopes:users:write');
+    Route::delete('/{id}', 'UsersController@delete')->middleware('scopes:users:write');
+});

@@ -56,6 +56,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'ratelimit' => \ATLauncher\Http\Middleware\RateLimit::class,
         'useragent' => \ATLauncher\Http\Middleware\CheckUserAgent::class,
+        'role' => \ATLauncher\Http\Middleware\CheckHasRole::class,
         'csrf' => \ATLauncher\Http\Middleware\VerifyCsrfToken::class
     ];
 }

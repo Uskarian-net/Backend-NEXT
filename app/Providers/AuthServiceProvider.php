@@ -36,11 +36,8 @@ class AuthServiceProvider extends ServiceProvider
         Passport::tokensCan([
             'self:read' => 'Read own user credentials (except password)',
             'self:write' => 'Change own user credentials (including password)',
-            'users:list' => 'List all users',
-            'users:create' => 'Create a new user',
-            'users:read' => 'View a user',
-            'users:update' => 'Update the details for a user',
-            'users:delete' => 'Delete a user',
+            'users:read' => 'Read other users credentials (except password)',
+            'users:write' => 'Change other users credentials (including password)',
         ]);
     }
 }

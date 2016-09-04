@@ -46,7 +46,7 @@ Vagrant.configure(2) do |config|
         if [ ! -f $PATH_KEY ] || [ ! -f $PATH_CSR ] || [ ! -f $PATH_CRT ]
         then
           openssl genrsa -out "$PATH_KEY" 2048 2>/dev/null
-          openssl req -new -key "$PATH_KEY" -out "$PATH_CSR" -subj "/CN=$1/O=Vagrant/C=UK" 2>/dev/null
+          openssl req -new -key "$PATH_KEY" -out "$PATH_CSR" -subj "/CN=localhost/O=Vagrant/C=UK" 2>/dev/null
           openssl x509 -req -days 365 -in "$PATH_CSR" -signkey "$PATH_KEY" -out "$PATH_CRT" 2>/dev/null
         fi
 
