@@ -2,11 +2,9 @@
 
 namespace ATLauncher\Http\Controllers\V1;
 
-use ATLauncher\Http\Requests\UpdateUser;
 use ATLauncher\Models\User;
-use ClassesWithParents\F;
-use Illuminate\Http\Request;
 use ATLauncher\Http\Requests\CreateUser;
+use ATLauncher\Http\Requests\UpdateUser;
 
 use ATLauncher\Http\Controllers\Controller;
 

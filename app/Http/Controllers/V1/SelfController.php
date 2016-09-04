@@ -18,17 +18,4 @@ class SelfController extends Controller
 
         return response()->json($user->makeHidden('roles')->toArray());
     }
-
-    /**
-     * Gets the current authenticated users roles.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function roles()
-    {
-        /** @var \ATLauncher\Models\User $user */
-        $user = \Auth::guard()->user();
-
-        return response()->json($user->roles);
-    }
 }

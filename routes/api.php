@@ -15,7 +15,6 @@ Route::get('/', 'RootController@get');
 
 Route::group(['prefix' => '/self', 'middleware' => ['auth:api', 'scopes:self:read']], function () {
     Route::get('/', 'SelfController@index');
-    Route::get('/roles', 'SelfController@roles');
 });
 
 Route::group(['prefix' => '/users', 'middleware' => ['auth:api', 'role:api,admin']], function () {
@@ -25,4 +24,8 @@ Route::group(['prefix' => '/users', 'middleware' => ['auth:api', 'role:api,admin
     Route::get('/{id}', 'UsersController@read')->middleware('scopes:users:read');
     Route::put('/{id}', 'UsersController@update')->middleware('scopes:users:write');
     Route::delete('/{id}', 'UsersController@delete')->middleware('scopes:users:write');
+
+    Route::get('/{id}/roles', 'UsersRolesController@index')->middleware('scopes:users:read');
+    Route::post('/{id}/roles', 'UsersRolesController@create')->middleware('scopes:users:write');
+    Route::delete('/{id}/roles', 'UsersRolesController@delete')->middleware('scopes:users:write');
 });
