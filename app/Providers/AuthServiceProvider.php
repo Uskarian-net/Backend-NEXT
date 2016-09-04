@@ -2,9 +2,10 @@
 
 namespace ATLauncher\Providers;
 
-use ATLauncher\Models\Role;
+use Carbon\Carbon;
 use Laravel\Passport\Passport;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -27,6 +28,10 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         Passport::pruneRevokedTokens();
+
+        Passport::enableImplicitFlow();
+
+        Passport::tokensExpireIn(Carbon::now()->addDays(15));
 
         Passport::tokensCan([
             'self:read' => 'Read own user credentials (except password)',

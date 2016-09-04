@@ -33,6 +33,7 @@ class Kernel extends HttpKernel
 
         'api' => [
             'ratelimit:20,1,api',
+            'useragent:api,true',
             'bindings',
         ],
     ];
@@ -54,6 +55,7 @@ class Kernel extends HttpKernel
         'guest' => \ATLauncher\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'ratelimit' => \ATLauncher\Http\Middleware\RateLimit::class,
+        'useragent' => \ATLauncher\Http\Middleware\CheckUserAgent::class,
         'csrf' => \ATLauncher\Http\Middleware\VerifyCsrfToken::class
     ];
 }

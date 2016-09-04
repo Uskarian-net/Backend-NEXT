@@ -1,11 +1,17 @@
 {
     "name": "atlauncher/backend-next",
     "description": "Backend for ATLauncher composing of just an API used by the frontend.",
-    "license": "proprietary",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/RyanTheAllmighty/passport"
+        }
+    ],
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "laravel/passport": "^1.0"
+        "laravel/passport": "dev-develop"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

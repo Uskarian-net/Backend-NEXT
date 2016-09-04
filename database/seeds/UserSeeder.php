@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
         if (is_null($admin_user)) {
             $admin_user = \ATLauncher\Models\User::create([
                 'username' => 'admin',
-                'email' => 'admin@localhost',
+                'email' => 'admin@localhost.com',
                 'password' => Hash::make('password')
             ]);
         }

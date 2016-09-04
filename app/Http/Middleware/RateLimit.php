@@ -31,4 +31,26 @@ class RateLimit extends ThrottleRequests
 
         return parent::handle($request, $next, $maxAttempts, $decayMinutes);
     }
+
+    /**
+     * Create a 'too many attempts' response.
+     *
+     * @param  string  $key
+     * @param  int  $maxAttempts
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function buildResponse($key, $maxAttempts)
+    {
+        $response = response()->setStatusCode(429)->json([
+            'error' => 'Rate limit reached. Please wait before making more requests.'
+        ]);
+
+        $retryAfter = $this->limiter->availableIn($key);
+
+        return $this->addHeaders(
+            $response, $maxAttempts,
+            $this->calculateRemainingAttempts($key, $maxAttempts, $retryAfter),
+            $retryAfter
+        );
+    }
 }

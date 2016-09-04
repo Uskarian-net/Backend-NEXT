@@ -1,6 +1,6 @@
 <?php
 
-namespace ATLauncher\Http\Controllers\V2;
+namespace ATLauncher\Http\Controllers\V1;
 
 use ATLauncher\Models\User;
 use Illuminate\Http\Request;
@@ -46,7 +46,7 @@ class UserController extends Controller
 
     /**
      * Display the specified resource.
-     * 
+     *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */

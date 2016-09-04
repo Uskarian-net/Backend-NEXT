@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', ['as' => 'root', 'uses' => 'RootController@get']);
-Route::get('/authenticated', ['as' => 'root', 'uses' => 'RootController@getAuthenticated'])->middleware('auth:api')->middleware('scopes:self:read');
+Route::get('/', 'RootController@get');
+
+Route::group(['prefix' => '/self', 'middleware' => ['auth:api', 'scopes:self:read']], function () {
+    Route::get('/', 'SelfController@index');
+    Route::get('/roles', 'SelfController@roles');
+});
 
 Route::resource('users', 'UserController', ['except' => ['create', 'edit']]);

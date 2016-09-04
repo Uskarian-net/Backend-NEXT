@@ -30,6 +30,17 @@ class Role extends Model
     ];
 
     /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'pivot',
+        'created_by',
+        'rate_limit'
+    ];
+
+    /**
      * The attributes that should be mutated to dates.
      *
      * @var array
