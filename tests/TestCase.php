@@ -1,7 +1,11 @@
 <?php
 
+use ATLauncher\Testing\Concerns\CreatesAccessTokens;
+
 abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
+    use CreatesAccessTokens;
+
     /**
      * The base URL to use while testing the application.
      *

@@ -11,13 +11,24 @@
 |
 */
 
-//$factory->define(ATLauncher\User::class, function (Faker\Generator $faker) {
-//    static $password;
-//
-//    return [
-//        'name' => $faker->name,
-//        'email' => $faker->safeEmail,
-//        'password' => $password ?: $password = bcrypt('secret'),
-//        'remember_token' => str_random(10),
-//    ];
-//});
+$factory->define(\ATLauncher\Models\User::class, function (Faker\Generator $faker) {
+    static $password;
+
+    return [
+        'username' => $faker->userName,
+        'email' => $faker->safeEmail,
+        'must_change_password' => false,
+        'password' => $password ?: $password = bcrypt('secret'),
+        'remember_token' => str_random(10),
+        'creation_token' => str_random(10),
+    ];
+});
+
+$factory->define(\ATLauncher\Models\Role::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->name,
+        'description' => $faker->sentence(10),
+        'rate_limit' => $faker->numberBetween(20, 1000),
+        'created_by' => null,
+    ];
+});
