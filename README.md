@@ -21,8 +21,9 @@ Lastly we need to install the composer dependencies, and other important setup, 
 
 ```
 vagrant ssh -- cd /var/www && composer install
-vagrant ssh -- cd /var/www && php artisan passport:install
+vagrant ssh -- touch /var/www/torage/database/atl_backend.sqlite
 vagrant ssh -- cd /var/www && php artisan migrate
+vagrant ssh -- cd /var/www && php artisan passport:install
 vagrant ssh -- cd /var/www && php artisan db:seed
 ```
 

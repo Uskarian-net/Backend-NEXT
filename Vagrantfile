@@ -35,6 +35,9 @@ Vagrant.configure(2) do |config|
         apt-get -y install php7.0-fpm php7.0-sqlite3 php7.0-mbstring php7.0-xml php7.0-bz2 php7.0-curl php7.0-mcrypt php7.0-zip
         update-rc.d php7.0-fpm defaults
 
+        # Install Composer
+        curl https://getcomposer.org/installer | php -- --install-dir=/user/local/bin --filename=composer
+
         # Create ssl certificate
         mkdir /etc/nginx/ssl
 
