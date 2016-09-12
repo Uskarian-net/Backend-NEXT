@@ -9,7 +9,7 @@ trait CreatesAccessTokens
     /**
      * @var \Laravel\Passport\PersonalAccessTokenResult
      */
-    private $token;
+    public $token;
 
     /**
      * Give the current user a token with the defined scopes.

@@ -14,7 +14,7 @@ class RootControllerTest extends TestCase
     public function testRootUnauthenticatedRoute()
     {
         $this->visit('/v1')
-            ->seeJson([
+            ->seeJsonEquals([
                 'authenticated' => false
             ]);
     }
@@ -32,9 +32,11 @@ class RootControllerTest extends TestCase
         $this->actingAs($user, 'api')->withAccessToken(['self:read']);
 
         $this->visit('/v1')
-            ->seeJson([
+            ->seeJsonEquals([
                 'authenticated' => true,
-                'scopes' => ['self:read']
+                'scopes' => ['self:read'],
+                'created_at' => $this->token->token->created_at,
+                'expires_at' => $this->token->token->expires_at->toDateTimeString()
             ]);
     }
 
@@ -51,9 +53,11 @@ class RootControllerTest extends TestCase
         $this->actingAs($user, 'api')->withAccessToken([]);
 
         $this->visit('/v1')
-            ->seeJson([
+            ->seeJsonEquals([
                 'authenticated' => true,
-                'scopes' => []
+                'scopes' => [],
+                'created_at' => $this->token->token->created_at,
+                'expires_at' => $this->token->token->expires_at->toDateTimeString()
             ]);
     }
 }

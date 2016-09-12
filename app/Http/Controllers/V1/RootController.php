@@ -19,8 +19,13 @@ class RootController extends Controller
         $user = \Auth::guard('api')->user();
 
         if (!is_null($user)) {
+            /** @var \Laravel\Passport\Token $token */
+            $token = $user->token();
+
             $response['authenticated'] = true;
-            $response['scopes'] = $user->token()->scopes;
+            $response['scopes'] = $token->scopes;
+            $response['created_at'] = $token->created_at;
+            $response['expires_at'] = $token->expires_at->toDateTimeString();
         }
 
         return response()->json($response);
