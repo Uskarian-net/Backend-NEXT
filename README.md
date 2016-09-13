@@ -15,13 +15,17 @@ vagrant up
 
 This will setup a virtual machine which contains this code and runs a nginx and PHP 7 FPM server with this code.
 
-Next simply copy the `.env.example` file to `.env`.
+Next simply copy the `.env.example` file to `.env`. These files may not show on your machine depending on if you have hidden files shown or not. If you cannot find the files then run the following:
+
+```
+vagrant ssh -- cd /var/www && cp .env.example .env
+```
 
 Lastly we need to install the composer dependencies, and other important setup, which can be done by running the following:
 
 ```
 vagrant ssh -- cd /var/www && composer install
-vagrant ssh -- touch /var/www/torage/database/atl_backend.sqlite
+vagrant ssh -- touch /var/www/storage/database/atl_backend.sqlite
 vagrant ssh -- cd /var/www && php artisan migrate
 vagrant ssh -- cd /var/www && php artisan passport:install
 vagrant ssh -- cd /var/www && php artisan db:seed
