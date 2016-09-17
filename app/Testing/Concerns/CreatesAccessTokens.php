@@ -12,13 +12,13 @@ trait CreatesAccessTokens
     public $token;
 
     /**
-     * Give the current user a token with the defined scopes.
+     * Give the current user a personal token with the defined scopes.
      *
      * @param string[] $scopes
      * @param string $guard
      * @return $this
      */
-    public function withAccessToken(array $scopes, $guard = 'api')
+    public function withPersonalAccessToken(array $scopes, $guard = 'api')
     {
         /** @var \ATLauncher\Models\User $user */
         $user = $this->app['auth']->guard($guard)->user();

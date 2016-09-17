@@ -29,7 +29,7 @@ class RootControllerTest extends TestCase
         /** @var \ATLauncher\Models\User $user */
         $user = factory(\ATLauncher\Models\User::class)->create();
 
-        $this->actingAs($user, 'api')->withAccessToken(['self:read']);
+        $this->actingAs($user, 'api')->withPersonalAccessToken(['self:read']);
 
         $this->visit('/v1')
             ->seeJsonEquals([
@@ -50,7 +50,7 @@ class RootControllerTest extends TestCase
         /** @var \ATLauncher\Models\User $user */
         $user = factory(\ATLauncher\Models\User::class)->create();
 
-        $this->actingAs($user, 'api')->withAccessToken([]);
+        $this->actingAs($user, 'api')->withPersonalAccessToken([]);
 
         $this->visit('/v1')
             ->seeJsonEquals([
